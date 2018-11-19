@@ -26,6 +26,7 @@ function [grad_mag,grad_dir] = calculate_gradient(img)
     sobel_filter_y = filter2(sobel_mask_y, img);
     grad_mag = sqrt(sobel_filter_x.^2 + sobel_filter_y.^2);
     grad_dir = atan(sobel_filter_y./sobel_filter_x);
+    figure,image(grad_dir);
     
 end
 
@@ -80,8 +81,8 @@ function t_img = threshold_matrix(mat,thresh)
 %elsewhere.
     
     %Implement this function
-    mat(mat<thresh) = 0;
-    mat(mat >= thresh) = 255;
+    img_matrix(mat<threshold) = 0;
+    img_matrix(mat >= threshold) = 255;
     t_img = mat;
 
 end
